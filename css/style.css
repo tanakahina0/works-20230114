@@ -1,0 +1,127 @@
+.grid_contents {
+    display: grid;
+    grid-template-columns: 3fr 2fr;/* 横幅の感覚を決める 3:2*/
+    grid-template-rows: 35vh 35vh;/* 高さ */
+    width: 80%;
+    margin: 30px auto;
+    background-color: black;
+    user-select: none;
+}
+
+.img_link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 表示領域ぴったりで画像を表示させる */
+    transition: 0.5s;
+ }
+
+.img_link:hover img  /* img_linkをホバーしたら、img(画像)を透過させる */ {
+    opacity: 0.5; /* filterも便利 */
+}
+
+.large_img {
+    grid-row: 1/3; /* 格子の1から3まで */
+    position: relative;
+}
+
+.img_link {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.img_link:hover .content_text {
+    display: block;
+ }/* display:blockでホバーしたら表示させる、コンテンツテキストにdisplay:noneをつける */
+
+.content_text {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.new img {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    width: 15%;
+}
+
+.btn {
+    border-radius: 20px;
+    border: 1px solid rgb(255, 216, 216);
+    /* border-color: rgb(255, 216, 216); */
+    /* border-width: 1px; */
+    background-color: rgb(255, 216, 216);
+    height: 5vh;
+    width: 30vh;
+    font-size: 15px;
+    color: rgb(133, 122, 101);
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 2px 2px rgb(203, 201, 197);;
+    /* -webkit-text-stroke: 0.5px rgb(174, 187, 157); */
+}
+
+@media screen and (max-width: 480px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+    .grid_contents {
+            display: grid;
+            grid-template-columns: 3fr 3fr;/* 横幅の感覚を決める 3:2*/
+            grid-template-rows: 35vh 20vh;/* 高さ */
+            width: 80%;
+            height: 50%;
+            user-select: none;
+    }
+    .large_img {
+        grid-row: 1 / 2;
+        grid-column: 1 / 4;
+    }
+    .content_text {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        /* padding: 140px 100px; */
+    }
+     .img_link img  {
+        opacity: 0.6;
+     }
+}
+
+@media screen and (max-width: 980px) {
+	/* 480px以下に適用されるCSS（タブレット用） */
+    .grid_contents {
+            display: grid;
+            grid-template-columns: 3fr 3fr;/* 横幅の感覚を決める 3:2*/
+            grid-template-rows: 35vh 20vh;/* 高さ */
+            width: 80%;
+            height: 50%;
+            user-select: none;
+    }
+    .large_img {
+        grid-row: 1 / 2;
+        grid-column: 1 / 4;
+    }
+    .content_text {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        /* padding: 140px 100px; */
+    }
+     .img_link img  {
+        opacity: 0.6;
+     }
+}
